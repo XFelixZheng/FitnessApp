@@ -1,0 +1,21 @@
+<div class="content">
+  <div class="ui small image">
+    <img [src]="person.profilepicture">
+  </div>
+  <div class = "header">Username: {{person.username}}</div>
+  <div class="header">Name: {{person.firstname + " " + person.surname}}</div>
+  <div class="info">
+    Birthdate: {{person.birthdate.getDay()}}.{{person.birthdate.getMonth()}}.{{person.birthdate.getFullYear()}}<br>
+    Email: {{person.email}}<br><br>
+  </div>
+  <div class="ui divider"></div>
+  <div class="metadata">
+    Gender: {{person.bodyinfo[0].gender}}<br>
+    Height: {{person.bodyinfo[0].height}}<br>
+    Age: {{person.bodyinfo[0].age}}<br>
+    Weight: {{person.bodyinfo[0].weight}}<br>
+    Bodyfat: {{person.bodyinfo[0].bodyfat}}<br>
+    Water: {{person.bodyinfo[0].water}}<br>
+    BMI: {{person.bodyinfo[0].bmi}}<br>
+  </div>
+</div>
