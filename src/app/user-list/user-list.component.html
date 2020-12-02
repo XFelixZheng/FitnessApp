@@ -1,0 +1,7 @@
+<div class="ui middle aligned selection divided list">
+  <app-user-list-item class="item"
+    *ngFor="let u of users"
+    [user]="u"
+    [routerLink]="u.username">
+  </app-user-list-item>
+</div>

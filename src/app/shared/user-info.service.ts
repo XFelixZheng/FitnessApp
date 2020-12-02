@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import { Person } from '../shared/person';
+import { User } from './user';
 
 @Injectable({
   providedIn: 'root'
 })
-export class PersonInfoService {
+export class UserInfoService {
 
-  persons: Person[];
+  users: User[];
 
   constructor() {
-    this.persons = [
+    this.users = [
       {
         username: 'KangPowPanda',
         firstname: 'Felix',
@@ -46,12 +46,12 @@ export class PersonInfoService {
     ];
   }
 
-  getAll(): Person[] {
-    return this.persons;
+  getAll(): User[] {
+    return this.users;
   }
 
-  getSingle(username: string): Person {
+  getSingle(username: string): User {
     // tslint:disable-next-line: no-non-null-assertion
-    return this.persons.find(person => person.username === username)!;
+    return this.users.find(user => user.username === username)!;
   }
 }

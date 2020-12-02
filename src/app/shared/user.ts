@@ -1,12 +1,12 @@
 type Gender = 'male' | 'female' | 'other';
 
-export interface Person {
+export interface User {
   username: string;
   firstname: string;
   surname: string;
   birthdate: Date;
   email: string;
-  bodyinfo?: BodyInfo[];
+  bodyinfo: BodyInfo[];
   address?: string;
   streetnumber?: number;
   postcode?: number;
