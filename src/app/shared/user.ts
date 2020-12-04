@@ -19,7 +19,6 @@ export interface User {
 export interface BodyInfo {
   gender: Gender;
   height: number;
-  age?: number;
   weight: number;
   bodyfat: number;
   water: number;
