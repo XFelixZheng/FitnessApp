@@ -4,4 +4,13 @@
     [user]="u"
     [routerLink]="u.username">
   </app-user-list-item>
+
+  <div *ngIf="!users" class="ui active dimmer">
+    <div class="ui large text loader">Loading Data...</div>
+  </div>
+
+  <p *ngIf="users && !users.length">
+    No user
+  </p>
+
 </div>

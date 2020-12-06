@@ -11,10 +11,9 @@ import { UserInfoService } from '../shared/user-info.service';
 export class UserListComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private pi: UserInfoService) { }
+  constructor(private uinf: UserInfoService) { }
 
   ngOnInit(): void {
-    this.users = this.pi.getAll();
+    this.uinf.getAll().subscribe(res => this.users = res);
   }
-
 }

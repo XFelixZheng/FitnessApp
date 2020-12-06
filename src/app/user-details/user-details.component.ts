@@ -11,13 +11,13 @@ import { UserInfoService } from '../shared/user-info.service';
 })
 export class UserDetailsComponent implements OnInit {
 
-  user!: User;
-  constructor(private pi: UserInfoService, private route: ActivatedRoute ) { }
+  user: User[] = [];
+  constructor(private uinf: UserInfoService, private route: ActivatedRoute ) { }
 
   ngOnInit(): void {
     const params = this.route.snapshot.paramMap;
     // tslint:disable-next-line: no-non-null-assertion
-    this.user = this.pi.getSingle(params.get('username')!);
+    this.uinf.getSingle(params.get('username')!).subscribe(u => this.user = u);
+    //this.uinf.getSingle(params.get('username')!).subscribe(u => console.log(u));
   }
-
 }
