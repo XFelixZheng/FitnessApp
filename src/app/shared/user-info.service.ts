@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { User } from './user';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +17,20 @@ export class UserInfoService {
   }
 
   getSingle(username: string): Observable<User[]> {
-    return this.http.get<any[]>(`${this.api}/users/${username}`);
+    return this.http.get<any[]>(`${this.api}/users/${username}`).pipe(retry(5), catchError(this.errorHandler));
+  }
+
+  createUser(user: User): Observable<any> {
+    return this.http.post<any[]>(`${this.api}/users`,
+    user,
+    {responseType: 'json'})
+    .pipe(
+      catchError(this.errorHandler))
+      ;
+  }
+
+  private errorHandler(error: HttpErrorResponse): Observable<any> {
+    console.error('Error found!');
+    return throwError(error);
   }
 }

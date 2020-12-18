@@ -14,6 +14,12 @@ export class UserListComponent implements OnInit {
   constructor(private uinf: UserInfoService) { }
 
   ngOnInit(): void {
-    this.uinf.getAll().subscribe(res => this.users = res);
+    //this.uinf.getAll().subscribe(res => this.users = res);
+    this.uinf.getAll().subscribe((res) => {
+      this.users = res;
+      console.log(res);
+    }, error => {
+      console.error("Couldn't fetch data!");
+    });
   }
 }

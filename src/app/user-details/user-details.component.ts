@@ -17,7 +17,13 @@ export class UserDetailsComponent implements OnInit {
   ngOnInit(): void {
     const params = this.route.snapshot.paramMap;
     // tslint:disable-next-line: no-non-null-assertion
-    this.uinf.getSingle(params.get('username')!).subscribe(u => this.user = u);
+    //this.uinf.getSingle(params.get('username')!).subscribe( u => this.user = u );
+    this.uinf.getSingle(params.get('username')!).subscribe( (userdata) => {
+      this.user = userdata;
+      console.log(userdata);
+      }, error => {
+        console.error("Couldn't fetch data entry");
+      });
     //this.uinf.getSingle(params.get('username')!).subscribe(u => console.log(u));
   }
 }

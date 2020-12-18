@@ -18,10 +18,10 @@ export interface User {
 // age and bmi can be calculated on display, no need to save it or save it as DB data?
 export interface BodyInfo {
   gender: Gender;
-  height: number;
-  weight: number;
-  bodyfat: number;
-  water: number;
+  height?: number;
+  weight?: number;
+  bodyfat?: number;
+  water?: number;
   bmi?: number;
 }
 
